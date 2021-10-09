@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap',
+    'carosuel',
 
     'cloudinary_storage',
     'cloudinary',
