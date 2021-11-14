@@ -21,8 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('bootstrap.urls')),
-    path('',include('carosuel.urls')),
+    path('bootstrap/',include('bootstrap.urls')),
+    path('',include('nasimit.urls')),
+    path('carosuel/',include('carosuel.urls')),
+    path('album/',include('album.urls')),
 ]
 
 if settings.DEBUG:

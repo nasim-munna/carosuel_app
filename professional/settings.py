@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap',
     'carosuel',
+    'album',
+    'nasimit',
 
     'cloudinary_storage',
     'cloudinary',
