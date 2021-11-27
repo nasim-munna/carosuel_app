@@ -41,7 +41,7 @@
                     <div class="header position-relative">
                         <!-- brand logo -->
                         <div class="header__logo top-logo">
-                            <a href="index.html">
+                            <a href="{% url 'nasimit:name' %}">
                                 <img src="{% static 'assets/images/logo/logo-dark.webp' %}" width="160" height="48" class="img-fluid" alt="">
                             </a>
                         </div>
@@ -112,7 +112,7 @@
                                                 </div>
                                                 <div class="info-content">
                                                     <h6 class="info-title">Online 24/7</h6>
-                                                    <div class="info-sub-title">+88 01777-424142</div>
+                                                    <div class="info-sub-title">+88 01989230820</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -176,7 +176,7 @@
 
                                         <ul>
                                             <li class="has-children has-children--multilevel-submenu active">
-                                                <a href="#"><span>Home</span></a>
+                                                <a href="{% url 'nasimit:name' %}"><span>Home</span></a>
                                                 <ul class="submenu">
                                                     <li><a href="index-infotechno.html"><span>Infotechno</span></a></li>
                                                     <li><a href="index-processing.html"><span>Processing</span></a></li>
@@ -217,7 +217,7 @@
                                                 </ul>
                                             </li>
                                             <li class="has-children has-children--multilevel-submenu">
-                                                <a href="#"><span>IT solutions</span></a>
+                                                <a href="{% url 'nasimit:itsolution' %}"><span>IT solutions</span></a>
                                                 <ul class="submenu">
                                                     <li><a href="it-services.html"><span>IT Services</span></a></li>
                                                     <li><a href="managed-it-service.html"><span>Managed IT Services</span></a></li>
@@ -290,7 +290,7 @@
                                                 </ul>
                                             </li>
                                             <li class="has-children has-children--multilevel-submenu">
-                                                <a href="blog-list-large-image.html"><span>Blog</span></a>
+                                                <a href="{% url 'nasimit:home' %}"><span>Blog</span></a>
                                                 <!-- multilevel submenu -->
                                                 <ul class="submenu">
                                                     <li><a href="blog-list-large-image.html"><span>List Large Image</span></a></li>
@@ -733,7 +733,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="content">
-                                                            <h5 class="heading">{{ data.title }}</h5>
+                                                            <h5 class="heading">{{ data.name }}</h5>
                                                             <div class="text">{{ data.short_description }}
                                                             </div>
                                                             <div class="box-images-arrow">
@@ -768,7 +768,7 @@
                                                         <img src="{{ data.image.url }}" class="img-fluid" alt="Image">
                                                     </div>
                                                     <div class="brand-logo__image-hover">
-                                                        <img src="{{ data.image_hover.url }}" class="img-fluid" alt="Image">
+                                                        <img src="{{ data.hover_image.url }}" class="img-fluid" alt="Image">
                                                     </div>
                                                 </a>
                                             </div>
@@ -797,7 +797,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="content">
-                                                            <h6 class="heading"> {{ data.title }} </h6>
+                                                            <h6 class="heading"> {{ data.name }} </h6>
                                                             <div class="text">{{ data.short_description }}</div>
                                                         </div>
                                                     </div>
@@ -1142,21 +1142,23 @@
                         <div class="col-lg-6">
                             <div class="contact-form-wrap">
 
-                                <!-- <form class="contact-form" id="contact-form-2" action="https://whizthemes.com/mail-php/jowel/mitech/php/services-mail.php" method="post"> -->
-                                <form class="contact-form" id="contact-form-2" action="assets/php/services-mail.php" method="post">
+                                <form class="contact-form" action="{% url 'nasimit:contact_form' %}" method="post">
+                                    
+                                    {% csrf_token %}
+                                    
                                     <div class="contact-form__two">
                                         <div class="contact-input">
                                             <div class="contact-inner">
-                                                <input name="con_name" type="text" placeholder="Name *">
+                                                <input name="name" type="text" placeholder="Name *">
                                             </div>
                                             <div class="contact-inner">
-                                                <input name="con_email" type="email" placeholder="Email *">
+                                                <input name="email" type="email" placeholder="Email *">
                                             </div>
                                         </div>
                                         <div class="contact-select">
                                             <div class="form-item contact-inner">
                                                 <span class="inquiry">
-                                        <select id="Visiting" name="Visiting">
+                                        <select id="Visiting" name="department">
                                             <option disabled="" selected="">Select Department to email</option>
                                             <option value="Your inquiry about">Your inquiry about</option>
                                             <option value="General Information Request">General Information Request</option>
@@ -1169,11 +1171,11 @@
                                             </div>
                                         </div>
                                         <div class="contact-inner contact-message">
-                                            <textarea name="con_message" placeholder="Please describe what you need."></textarea>
+                                            <textarea name="message" placeholder="Please describe what you need."></textarea>
                                         </div>
                                         <div class="comment-submit-btn">
                                             <button class="ht-btn ht-btn-md" type="submit">Get a free consultation</button>
-                                            <p class="form-messege-2"></p>
+                                           
                                         </div>
                                     </div>
                                 </form>
@@ -1182,7 +1184,7 @@
                         <div class="col-lg-5 ms-auto">
                             <div class="contact-info-three text-left">
                                 <h6 class="heading font-weight--reguler">Reach out now!</h6>
-                                <h3 class="call-us"><a href="#">(+00) 123 567990</a></h3>
+                                <h3 class="call-us"><a href="#">(+00) 1989230820</a></h3>
                                 <div class="text">Start the collaboration with us while figuring out the best solution based on your needs.</div>
                                 <div class="location-button mt-20">
                                     <a href="#" class="location-text-button"><span class="button-icon"></span> <span class="button-text">View on Google map</span></a>
